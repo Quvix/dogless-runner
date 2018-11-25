@@ -24,11 +24,11 @@ public class DebugInfo implements Drawable {
         textPaint = new Paint();
         textPaint.setColor(Color.RED);
         textPaint.setStyle(Paint.Style.FILL);
-        textPaint.setTextSize(view.getHeight() / 25);
+        textPaint.setTextSize(view.getHeight() / 40);
 
-        lineHeight = view.getHeight() / 20;
-        x = (int)(view.getWidth() * 0.02);
-        y = (int)(view.getHeight() * 0.05);
+        lineHeight = view.getHeight() / 35;
+        x = (int)(view.getWidth() * 0.01);
+        y = (int)(view.getHeight() * 0.03);
     }
 
     public void registerParameter(String name, Callable<String> value) {

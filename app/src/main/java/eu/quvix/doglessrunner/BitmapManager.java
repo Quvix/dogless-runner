@@ -23,7 +23,17 @@ public class BitmapManager {
     }
 
     public void loadBitmaps(Resources resources) {
+        // Cat walking animation
+        loadBitmap(resources, R.drawable.cat_walking_1);
+        loadBitmap(resources, R.drawable.cat_walking_2);
+        loadBitmap(resources, R.drawable.cat_walking_3);
+        loadBitmap(resources, R.drawable.cat_walking_4);
+        loadBitmap(resources, R.drawable.cat_walking_5);
+        loadBitmap(resources, R.drawable.cat_walking_6);
+    }
 
+    private void loadBitmap(Resources resources, int resId) {
+        bitmaps.put(resId, BitmapFactory.decodeResource(resources, resId));
     }
 
     public Bitmap getBitmap(int resId) {

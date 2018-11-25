@@ -42,6 +42,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Upd
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+        BitmapManager.getInstance().loadBitmaps(this.getResources());
+
         gsm = GameStateManager.getInstance();
         gsm.putState(State.PLAYSTATE, new PlayState(this));
         gsm.switchState(State.PLAYSTATE);
@@ -53,20 +55,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Upd
         thread.start();
 
         debugInfo.registerParameter("FPS", new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return Double.toString(thread.getFPS());
-            }
-        });
-
-        debugInfo.registerParameter("FPS2", new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                return Double.toString(thread.getFPS());
-            }
-        });
-
-        debugInfo.registerParameter("FPS3", new Callable<String>() {
             @Override
             public String call() throws Exception {
                 return Double.toString(thread.getFPS());
@@ -95,7 +83,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Upd
 
     @Override
     public void update() {
-
+        gsm.update();
     }
 
     @Override
