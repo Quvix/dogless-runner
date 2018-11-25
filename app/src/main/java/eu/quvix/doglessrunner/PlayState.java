@@ -11,6 +11,7 @@ public class PlayState implements GameState{
     private View view;
     private Paint backgroundPaint;
     private Player player;
+    private Background background;
 
     public PlayState(View view) {
         this.view = view;
@@ -23,16 +24,19 @@ public class PlayState implements GameState{
     @Override
     public void init() {
         player = new Player(view, new Point(200 , 200));
+        background = new Background(view, BitmapManager.getInstance().getBitmap(R.drawable.sky_background));
     }
 
     @Override
     public void draw(Canvas canvas) {
         canvas.drawPaint(backgroundPaint);
+        background.draw(canvas);
         player.draw(canvas);
     }
 
     @Override
     public void update() {
+        background.update();
         player.update();
     }
 }

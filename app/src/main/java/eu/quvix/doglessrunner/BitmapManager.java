@@ -30,6 +30,8 @@ public class BitmapManager {
         loadBitmap(resources, R.drawable.cat_walking_4);
         loadBitmap(resources, R.drawable.cat_walking_5);
         loadBitmap(resources, R.drawable.cat_walking_6);
+
+        loadBitmap(resources, R.drawable.sky_background);
     }
 
     private void loadBitmap(Resources resources, int resId) {
