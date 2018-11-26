@@ -23,7 +23,7 @@ public class PlayState implements GameState{
 
     @Override
     public void init() {
-        player = new Player(view, new Point(200 , 200));
+        player = new Player(view);
         background = new Background(view, BitmapManager.getInstance().getBitmap(R.drawable.sky_background));
     }
 
