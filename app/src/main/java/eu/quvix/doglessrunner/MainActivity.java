@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import eu.quvix.doglessrunner.states.GameStateManager;
+
 public class MainActivity extends Activity {
 
     @Override
@@ -18,5 +20,10 @@ public class MainActivity extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(new GameView(this.getApplicationContext()));
+    }
+
+    @Override
+    public void onBackPressed() {
+        GameStateManager.getInstance().getCurrentState().onBackPressed();
     }
 }

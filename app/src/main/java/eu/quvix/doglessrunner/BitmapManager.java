@@ -32,6 +32,9 @@ public class BitmapManager {
         loadBitmap(resources, R.drawable.cat_walking_6);
 
         loadBitmap(resources, R.drawable.sky_background);
+
+        loadBitmap(resources, R.drawable.platform_long);
+        loadBitmap(resources, R.drawable.platform_medium);
     }
 
     private void loadBitmap(Resources resources, int resId) {
