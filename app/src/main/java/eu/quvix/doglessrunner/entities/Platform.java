@@ -1,19 +1,24 @@
-package eu.quvix.doglessrunner;
+package eu.quvix.doglessrunner.entities;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.view.View;
 
-public class Platform implements Drawable {
+import eu.quvix.doglessrunner.BitmapManager;
+import eu.quvix.doglessrunner.Drawable;
+import eu.quvix.doglessrunner.R;
+
+public class Platform extends GameEntity {
+
     public enum Type {
         MEDIUM, LONG;
     }
 
     private Bitmap bitmap;
-    private Rect rect;
 
-    public Platform(View view, int x, int y, Platform.Type type) {
+    public Platform(View view, float x, float y, Platform.Type type) {
         BitmapManager bm = BitmapManager.getInstance();
         switch (type) {
             case MEDIUM:
@@ -23,17 +28,28 @@ public class Platform implements Drawable {
                 bitmap = bm.getBitmap(R.drawable.platform_long);
                 break;
         }
-        int height = (int)(view.getHeight() * 0.05);
-        int width = height / bitmap.getHeight() * bitmap.getWidth();
-        rect = new Rect(x, y, x + width, y + width);
+        float height = (int)(view.getHeight() * 0.05);
+        float width = height / bitmap.getHeight() * bitmap.getWidth();
+        setBounds(new RectF(x, y, x + width, y + height));
     }
 
     @Override
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(bitmap, null, rect, null);
+        canvas.drawBitmap(bitmap, null, getBounds(), null);
     }
 
-    public Rect getBounds() {
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    protected void onTouch() {
+
+    }
+
+    @Override
+    protected void onMove(float velX, float velY) {
 
     }
 }

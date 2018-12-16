@@ -26,7 +26,6 @@ public class SoundManager {
 
     public void loadSounds(Context context) {
         Field[] ID_Fields = R.raw.class.getFields();
-        int[] resArray = new int[ID_Fields.length];
         for (Field ID_Field : ID_Fields) {
             try {
                 sounds.put(ID_Field.getInt(null), MediaPlayer.create(context, ID_Field.getInt(null)));

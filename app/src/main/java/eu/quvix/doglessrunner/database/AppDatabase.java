@@ -1,4 +1,4 @@
-package eu.quvix.doglessrunner;
+package eu.quvix.doglessrunner.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;

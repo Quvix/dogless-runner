@@ -3,9 +3,11 @@ package eu.quvix.doglessrunner;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,18 +25,14 @@ public class BitmapManager {
     }
 
     public void loadBitmaps(Resources resources) {
-        // Cat walking animation
-        loadBitmap(resources, R.drawable.cat_walking_1);
-        loadBitmap(resources, R.drawable.cat_walking_2);
-        loadBitmap(resources, R.drawable.cat_walking_3);
-        loadBitmap(resources, R.drawable.cat_walking_4);
-        loadBitmap(resources, R.drawable.cat_walking_5);
-        loadBitmap(resources, R.drawable.cat_walking_6);
-
-        loadBitmap(resources, R.drawable.sky_background);
-
-        loadBitmap(resources, R.drawable.platform_long);
-        loadBitmap(resources, R.drawable.platform_medium);
+        Field[] ID_Fields = R.drawable.class.getFields();
+        for (Field ID_Field : ID_Fields) {
+            try {
+                loadBitmap(resources, ID_Field.getInt(null));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void loadBitmap(Resources resources, int resId) {
