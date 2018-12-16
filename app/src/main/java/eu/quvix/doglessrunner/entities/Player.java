@@ -24,9 +24,9 @@ public class Player extends GameEntity {
     }
 
     private static final float MAX_FALLING_SPEED = 15f;
-    private static final float JUMP_POWER = 15f;
+    private static final float JUMP_POWER = 16f;
     private static final float GRAVITY = 0.4f;
-    private static final float SPEED = 4.5f;
+    private static final float SPEED = 5f;
     private float velY = 0;
     private boolean dead = false;
     private int collected = 0;
